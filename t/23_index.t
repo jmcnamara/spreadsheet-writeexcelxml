@@ -22,6 +22,10 @@ use Test::More tests => 19;
 #
 my $test_file = "temp_test_file.xml";
 my $workbook  = Spreadsheet::WriteExcelXML->new($test_file);
+
+# Test with older cell limits.
+$workbook->use_lower_cell_limits();
+
 my $worksheet = $workbook->add_worksheet();
 
 # Test for false "$col == $self->{prev_col} +1" from _write_xml_cell().

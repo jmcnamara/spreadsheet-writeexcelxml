@@ -37,8 +37,8 @@ sub new {
 
     my $class                   = shift;
     my $self                    = Spreadsheet::WriteExcelXML::XMLwriter->new();
-    my $rowmax                  = 65536;
-    my $colmax                  = 256;
+    my $rowmax                  = 1_048_576;
+    my $colmax                  = 16_384;
     my $strmax                  = 32767;
 
     $self->{_name}              = $_[0];
@@ -48,6 +48,7 @@ sub new {
     $self->{_activesheet}       = $_[4];
     $self->{_firstsheet}        = $_[5];
     $self->{_1904}              = $_[6];
+    $self->{_lower_cell_limits} = $_[7];
 
     $self->{_ext_sheets}        = [];
     $self->{_fileclosed}        = 0;
@@ -143,6 +144,12 @@ sub new {
                                    Merge    => 7,
                                    Comment  => 8,
                                   };
+
+    # Set older cell limits if required for backward compatibility.
+    if ( $self->{_lower_cell_limits} ) {
+        $self->{_xls_rowmax} = 65536;
+        $self->{_xls_colmax} = 256;
+    }
 
 
     bless $self, $class;
@@ -1376,10 +1383,10 @@ sub _substitute_cellref {
     my $cell = uc(shift);
 
     # Convert a column range: 'A:A' or 'B:G'.
-    # A range such as A:A is equivalent to A1:65536, so add rows as required
+    # A range such as A:A is equivalent to A1:Rowmax, so add rows as required
     if ($cell =~ /\$?([A-I]?[A-Z]):\$?([A-I]?[A-Z])/) {
         my ($row1, $col1) =  $self->_cell_to_rowcol($1 .'1');
-        my ($row2, $col2) =  $self->_cell_to_rowcol($2 .'65536');
+        my ($row2, $col2) =  $self->_cell_to_rowcol($2 . $self->{_xls_rowmax});
         return $row1, $col1, $row2, $col2, @_;
     }
 
@@ -1554,7 +1561,7 @@ sub write_number {
 # Returns  0 : normal termination
 #         -1 : insufficient number of arguments
 #         -2 : row or column out of range
-#         -3 : long string truncated to 255 chars
+#         -3 : long string truncated to 32767 chars
 #
 sub write_string {
 
@@ -1606,7 +1613,7 @@ sub write_string {
 # Returns  0 : normal termination
 #         -1 : insufficient number of arguments
 #         -2 : row or column out of range
-#         -3 : long string truncated to 255 chars
+#         -3 : long string truncated to 32767 chars
 #
 sub write_html_string {
 
@@ -1848,7 +1855,7 @@ sub repeat_formula {
 # Write a hyperlink. This is comprised of two elements: the visible label and
 # the invisible link. The visible label is the same as the link unless an
 # alternative string is specified. The label is written using the
-# write_string() method. Therefore the 255 characters string limit applies.
+# write_string() method. Therefore the max characters string limit applies.
 # $string and $format are optional and their order is interchangeable.
 #
 # The hyperlink can be to a http, ftp, mail, internal sheet, or external
@@ -1857,7 +1864,7 @@ sub repeat_formula {
 # Returns  0 : normal termination
 #         -1 : insufficient number of arguments
 #         -2 : row or column out of range
-#         -3 : long string truncated to 255 chars
+#         -3 : long string truncated to 32767 chars
 #
 sub write_url {
 

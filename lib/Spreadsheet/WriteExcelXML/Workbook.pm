@@ -56,6 +56,7 @@ sub new {
     $self->{_sheetnames}        = [];
     $self->{_formats}           = [];
     $self->{_palette}           = [];
+    $self->{_lower_cell_limits} = 0;
 
     bless $self, $class;
 
@@ -218,6 +219,7 @@ sub add_worksheet {
                         \$self->{_activesheet},
                         \$self->{_firstsheet},
                          $self->{_1904},
+                         $self->{_lower_cell_limits},
                     );
 
     my $worksheet = Spreadsheet::WriteExcelXML::Worksheet->new(@init_data);
@@ -438,6 +440,23 @@ sub set_codepage {
     $codepage   = 0x04E4 if $codepage == 1;
     $codepage   = 0x8000 if $codepage == 2;
     $self->{_codepage} = $codepage;
+}
+
+
+###############################################################################
+#
+# use_lower_cell_limits()
+#
+# TODO
+#
+sub use_lower_cell_limits {
+
+    my $self = shift;
+
+    croak "use_lower_cell_limits() must be called before add_worksheet()"
+      if $self->sheets();
+
+    $self->{_lower_cell_limits} = 1;
 }
 
 

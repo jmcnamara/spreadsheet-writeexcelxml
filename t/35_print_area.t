@@ -22,6 +22,8 @@ use Test::More tests => 6;
 my $test_file  = "temp_test_file.xml";
 my $workbook   = Spreadsheet::WriteExcelXML->new($test_file);
 
+# Test with older cell limits.
+$workbook->use_lower_cell_limits();
 
 # We use 'Sheet n' worksheet names so that they are single quoted in the
 # Excel XML output.
