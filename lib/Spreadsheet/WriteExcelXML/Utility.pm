@@ -257,7 +257,7 @@ sub xl_cell_to_rowcol {
 
     my $cell = shift;
 
-    $cell =~ /(\$?)([A-I]?[A-Z])(\$?)(\d+)/;
+    $cell =~ /(\$?)([A-Z]{1,3})(\$?)(\d+)/;
 
     my $col_abs = $1 eq "" ? 0 : 1;
     my $col     = $2;
@@ -869,7 +869,7 @@ John McNamara jmcnamara@cpan.org
 
 =head1 COPYRIGHT
 
-© MM-MMV, John McNamara.
+ï¿½ MM-MMV, John McNamara.
 
 All Rights Reserved. This module is free software. It may be used, redistributed and/or modified under the same terms as Perl itself.
 

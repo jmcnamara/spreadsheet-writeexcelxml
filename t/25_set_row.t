@@ -4,9 +4,9 @@
 #
 # A test for Spreadsheet::WriteExcelXML.
 #
-# Tests the set_row() method.
+# Tests the set_row() method with extended cell limits.
 #
-# reverse('ï¿½'), July 2004, John McNamara, jmcnamara@cpan.org
+# reverse('©'), July 2004, John McNamara, jmcnamara@cpan.org
 #
 
 
@@ -23,10 +23,6 @@ my @swex_data;
 #
 my $test_file = "temp_test_file.xml";
 my $workbook  = Spreadsheet::WriteExcelXML->new($test_file);
-
-# Test with older cell limits.
-$workbook->use_lower_cell_limits();
-
 my $worksheet = $workbook->add_worksheet();
 my $bold      = $workbook->add_format(bold   => 1);
 my $italic    = $workbook->add_format(italic => 1);
@@ -37,7 +33,7 @@ $worksheet->set_row(14, undef, $italic );
 $worksheet->set_row(15, undef, $bold   );
 $worksheet->set_row(17, undef, undef, 1);
 $worksheet->set_row(19, 9,     undef, 1);
-$worksheet->set_row($_, undef, $bold    ) for 65532 .. 65536; # 1 over limit.
+$worksheet->set_row($_, undef, $bold    ) for 1_048_572.. 1_048_576; # 1 over limit.
 
 # Split the 0 .. 9 <Row> range.
 $worksheet->write('D5', 8);
@@ -106,7 +102,7 @@ __DATA__
   </Style>
  </Styles>
  <Worksheet ss:Name="Sheet1">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="65536" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="1048576" x:FullColumns="1"
    x:FullRows="1">
    <Row ss:AutoFitHeight="0" ss:Height="45.75" ss:Span="3"/>
    <Row ss:Index="5" ss:AutoFitHeight="0" ss:Height="45.75">
@@ -118,7 +114,7 @@ __DATA__
    <Row ss:StyleID="s21"/>
    <Row ss:Index="18" ss:Hidden="1"/>
    <Row ss:Index="20" ss:AutoFitHeight="0" ss:Height="9" ss:Hidden="1"/>
-   <Row ss:Index="65533" ss:StyleID="s21" ss:Span="3"/>
+   <Row ss:Index="1048573" ss:StyleID="s21" ss:Span="3"/>
   </Table>
  </Worksheet>
 </Workbook>

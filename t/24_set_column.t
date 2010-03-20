@@ -4,9 +4,9 @@
 #
 # A test for Spreadsheet::WriteExcelXML.
 #
-# Tests the set_column() method.
+# Tests the set_column() method with extended cell limits.
 #
-# reverse('ï¿½'), July 2004, John McNamara, jmcnamara@cpan.org
+# reverse('©'), July 2004, John McNamara, jmcnamara@cpan.org
 #
 
 
@@ -23,11 +23,6 @@ my @swex_data;
 #
 my $test_file = "temp_test_file.xml";
 my $workbook  = Spreadsheet::WriteExcelXML->new($test_file);
-
-# Test with older cell limits.
-$workbook->use_lower_cell_limits();
-
-
 my $worksheet = $workbook->add_worksheet();
 my $bold      = $workbook->add_format(bold   => 1);
 my $italic    = $workbook->add_format(italic => 1);
@@ -39,8 +34,8 @@ $worksheet->set_column('O:O',   undef, $italic );
 $worksheet->set_column('Q:Q',   undef, $bold   );
 $worksheet->set_column('S:S',   undef, undef, 1);
 $worksheet->set_column('U:U',   2,     undef, 1);
-$worksheet->set_column('IQ:IV', undef, $bold   );
-$worksheet->set_column('IW:IX', undef, $bold   ); # Past the column limits.
+$worksheet->set_column('XEY:XFD', undef, $bold   );
+$worksheet->set_column('XFE:XFF', undef, $bold   ); # Past limits.
 
 $worksheet->write('D5', 8);
 $workbook->close();
@@ -128,7 +123,7 @@ __DATA__
    <Column ss:Index="17" ss:StyleID="s21" ss:AutoFitWidth="0"/>
    <Column ss:Index="19" ss:Hidden="1" ss:AutoFitWidth="0"/>
    <Column ss:Index="21" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="14.25"/>
-   <Column ss:Index="251" ss:StyleID="s21" ss:AutoFitWidth="0" ss:Span="5"/>
+   <Column ss:Index="16379" ss:StyleID="s21" ss:AutoFitWidth="0" ss:Span="5"/>
    <Row ss:Index="5">
     <Cell ss:Index="4"><Data ss:Type="Number">8</Data></Cell>
    </Row>

@@ -4,7 +4,7 @@
 #
 # A test for Spreadsheet::WriteExcelXML.
 #
-# Tests the print_area method.
+# Tests the print_area method with extended cell limits.
 #
 # reverse('©'), November 2004, John McNamara, jmcnamara@cpan.org
 #
@@ -21,9 +21,6 @@ use Test::More tests => 6;
 #
 my $test_file  = "temp_test_file.xml";
 my $workbook   = Spreadsheet::WriteExcelXML->new($test_file);
-
-# Test with older cell limits.
-$workbook->use_lower_cell_limits();
 
 # We use 'Sheet n' worksheet names so that they are single quoted in the
 # Excel XML output.
@@ -44,11 +41,11 @@ my $worksheet5 = $workbook->add_worksheet('Sheet 5');
    $worksheet5->print_area("A:A");
 
 my $worksheet6 = $workbook->add_worksheet('Sheet 6');
-   $worksheet6->print_area(0,0,0,255);
+   $worksheet6->print_area(0,0,0,16383);
 
 # Should be ignored
 my $worksheet7 = $workbook->add_worksheet('Sheet 7');
-   $worksheet7->print_area("A1:IV65536");
+   $worksheet7->print_area("A1:'XFE1048577");
 
 # Should be ignored
 my $worksheet8 = $workbook->add_worksheet('Sheet 8');
