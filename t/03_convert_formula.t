@@ -13,7 +13,7 @@
 use strict;
 
 use Spreadsheet::WriteExcelXML::Worksheet;
-use Test::More tests => 70;
+use Test::More tests => 71;
 
 
 
@@ -66,6 +66,7 @@ my @tests = (
 
                 # Tests for false matches in function names
                 [ 0, 0, '=LOG10(G10)'       => '=LOG10(R[9]C[6])'   ],
+                [ 0, 0, '=LOG10(LOG10)'     => '=LOG10(R[9]C[8508])'],
                 [ 1, 0, '=ATAN2(AN2,1)'     => '=ATAN2(RC[39],1)'   ],
                 [ 2, 0, '=DAYS360(S360,S360)' =>
                         '=DAYS360(R[357]C[18],R[357]C[18])'         ],

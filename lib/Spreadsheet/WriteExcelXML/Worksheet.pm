@@ -3327,6 +3327,9 @@ sub _convert_formula {
     # The negative look-behind is to prevent false column matches such
     # as "=A1:A1" => "=RC:RC"
     #
+    # Note: there is a tricky parse due to the increased column limits that
+    # isn't handled here. RC:RC is now a valid column range in A1 notation.
+    # Fix later. Maybe.
     $formula =~ s{(?<![A-Z\]])(\$?[A-I]?[A-Z]:\$?[A-I]?[A-Z])}
                  {$self->_col_range_to_R1C1($col, $1)}eg;
 
