@@ -7,7 +7,7 @@ package Spreadsheet::WriteExcelXML::Format;
 #
 # Used in conjunction with Spreadsheet::WriteExcelXML
 #
-# Copyright 2000-2005, John McNamara, jmcnamara@cpan.org
+# Copyright 2000-2010, John McNamara, jmcnamara@cpan.org
 #
 # Documentation after __END__
 #
@@ -25,7 +25,7 @@ use Carp;
 use vars qw($AUTOLOAD $VERSION @ISA);
 @ISA = qw(Exporter);
 
-$VERSION = '0.07';
+$VERSION = '0.11';
 
 ###############################################################################
 #
@@ -884,6 +884,6 @@ Software programs that read or write files that comply with the Microsoft specif
 
 =head1 COPYRIGHT
 
-© MM-MMV, John McNamara.
+© MM-MMX, John McNamara.
 
 All Rights Reserved. This module is free software. It may be used, redistributed and/or modified under the same terms as Perl itself.

@@ -1,5 +1,14 @@
 Revision history for Perl module Spreadsheet::WriteExcelXML.
 
+0.11 March 21 2010
+
+    + Increased row and column limits to Excel 2007's limits of
+      1,048,576 x 16,384. Older limits of 65536 x 256 can still
+      be imposed via the use_lower_cell_limits() method.
+      Added additional tests for new limits.
+      Thanks David Ashirov.
+
+
 0.10 April 29 2005
 
     + Added autofilter option via the autofilter() and filter_column()

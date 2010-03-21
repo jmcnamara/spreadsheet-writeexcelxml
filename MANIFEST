@@ -21,6 +21,9 @@ t/13_date_seconds.t
 t/21_set_column.t
 t/22_set_row.t
 t/23_index.t
+t/24_set_column.t
+t/25_set_row.t
+t/26_index.t
 t/31_hyperlink.t
 t/32_merge.t
 t/33_array_formula.t
@@ -29,6 +32,7 @@ t/35_print_area.t
 t/36_print_repeat.t
 t/37_comments.t
 t/38_html_strings.t
+t/39_print_area.t
 t/40_autofilter01.t
 t/40_autofilter02.t
 

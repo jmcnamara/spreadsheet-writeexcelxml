@@ -7,7 +7,7 @@ package Spreadsheet::WriteExcelXML::Worksheet;
 #
 # Used in conjunction with Spreadsheet::WriteExcelXML
 #
-# Copyright 2000-2005, John McNamara, jmcnamara@cpan.org
+# Copyright 2000-2010, John McNamara, jmcnamara@cpan.org
 #
 # Documentation after __END__
 #
@@ -25,7 +25,7 @@ use Spreadsheet::WriteExcelXML::Utility qw(xl_cell_to_rowcol xl_rowcol_to_cell);
 use vars qw($VERSION @ISA);
 @ISA = qw(Spreadsheet::WriteExcelXML::XMLwriter);
 
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 ###############################################################################
 #
@@ -3786,7 +3786,7 @@ Software programs that read or write files that comply with the Microsoft specif
 
 =head1 COPYRIGHT
 
-ï¿½ MM-MMV, John McNamara.
+© MM-MMx, John McNamara.
 
 All Rights Reserved. This module is free software. It may be used, redistributed and/or modified under the same terms as Perl itself.
 
