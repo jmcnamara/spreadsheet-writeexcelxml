@@ -12,7 +12,7 @@ my %deps = (
 );
 
 my %resources = (
-    repository  => 'http://github.com/jmcnamara/spreadsheet-writeexcel',
+    repository  => 'http://github.com/jmcnamara/spreadsheet-writeexcelxml',
     MailingList => 'http://groups.google.com/group/spreadsheet-writeexcel',
 );
 
