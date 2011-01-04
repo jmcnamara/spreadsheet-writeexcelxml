@@ -676,8 +676,12 @@ sub set_merge {
 #
 sub set_bold {
 
-    my $self          = shift;
-       $self->{_bold} = $_[0] ? 1 : 0;
+    my $self = shift;
+    my $bold = shift;
+
+    $bold = 1 if not defined $bold;
+
+    $self->{_bold} = $bold ? 1 : 0;
 }
 
 
