@@ -25,7 +25,7 @@ use Carp;
 use vars qw($AUTOLOAD $VERSION @ISA);
 @ISA = qw(Exporter);
 
-$VERSION = '0.11';
+$VERSION = '0.12';
 
 ###############################################################################
 #
@@ -888,6 +888,6 @@ Software programs that read or write files that comply with the Microsoft specif
 
 =head1 COPYRIGHT
 
-© MM-MMX, John McNamara.
+© MM-MMXI, John McNamara.
 
 All Rights Reserved. This module is free software. It may be used, redistributed and/or modified under the same terms as Perl itself.

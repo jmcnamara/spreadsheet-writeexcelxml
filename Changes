@@ -1,5 +1,11 @@
 Revision history for Perl module Spreadsheet::WriteExcelXML.
 
+0.12 January 4 2011
+
+    ! Minor fix for set_bold() without argument.
+      Reported by Lukasz I.
+
+
 0.11 March 21 2010
 
     + Increased row and column limits to Excel 2007's limits of

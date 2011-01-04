@@ -48,7 +48,7 @@ my @dates       = qw(
                         dates   => \@dates
                     );
 
-$VERSION        = '0.11';
+$VERSION        = '0.12';
 
 
 
@@ -923,7 +923,7 @@ John McNamara jmcnamara@cpan.org
 
 =head1 COPYRIGHT
 
-© MM-MMX, John McNamara.
+© MM-MMXI, John McNamara.
 
 All Rights Reserved. This module is free software. It may be used, redistributed and/or modified under the same terms as Perl itself.
 

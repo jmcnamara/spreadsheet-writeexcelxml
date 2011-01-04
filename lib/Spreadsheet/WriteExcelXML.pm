@@ -21,7 +21,7 @@ use Spreadsheet::WriteExcelXML::Workbook;
 use vars qw($VERSION @ISA);
 @ISA = qw(Spreadsheet::WriteExcelXML::Workbook Exporter);
 
-$VERSION = '0.11'; # A Bookshop Idyll.
+$VERSION = '0.12'; # A Bookshop Idyll.
 
 
 
@@ -54,7 +54,7 @@ Spreadsheet::WriteExcelXML - Create an Excel file in XML format.
 
 =head1 VERSION
 
-This document refers to version 0.11 of Spreadsheet::WriteExcelXML, released March 21, 2010.
+This document refers to version 0.12 of Spreadsheet::WriteExcelXML, released January 4, 2011.
 
 
 
@@ -3899,7 +3899,7 @@ Software programs that read or write files that comply with the Microsoft specif
 
 =head1 COPYRIGHT
 
-© MM-MMX, John McNamara.
+© MM-MMXI, John McNamara.
 
 All Rights Reserved. This module is free software. It may be used, redistributed and/or modified under the same terms as Perl itself.
 
