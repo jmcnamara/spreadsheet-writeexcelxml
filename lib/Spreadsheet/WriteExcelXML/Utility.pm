@@ -197,26 +197,28 @@ sub xl_rowcol_to_cell {
     my $col     = $_[1];
     my $row_abs = $_[2] ? '$' : '';
     my $col_abs = $_[3] ? '$' : '';
+    my $col_str = '';
 
-
-    my $int  = int ($col / 26);
-    my $frac = $col % 26;
-
-    my $chr1 =''; # Most significant character in AA1
-
-    if ($int > 0) {
-        $chr1 = chr( ord('A') + $int  -1 );
-    }
-
-    my $chr2 = chr( ord('A') + $frac );
-
-    # Zero index to 1-index
+    # Change from 0-indexed to 1 indexed.
     $row++;
+    $col++;
 
-    return $col_abs . $chr1 . $chr2 . $row_abs. $row;
+    while ( $col ) {
+        # Set remainder from 1 .. 26
+        my $remainder = $col % 26 || 26;
+
+        # Convert the $remainder to a character. C-ishly.
+        my $col_letter = chr( ord( 'A' ) + $remainder - 1 );
+
+        # Accumulate the column letters, right to left.
+        $col_str = $col_letter . $col_str;
+
+        # Get the next order of magnitude.
+        $col = int( ( $col - 1 ) / 26 );
 }
 
-
+    return $col_abs . $col_str . $row_abs . $row;
+}
 
 
 ###############################################################################
@@ -923,7 +925,7 @@ John McNamara jmcnamara@cpan.org
 
 =head1 COPYRIGHT
 
-© MM-MMXI, John McNamara.
+ï¿½ MM-MMXI, John McNamara.
 
 All Rights Reserved. This module is free software. It may be used, redistributed and/or modified under the same terms as Perl itself.
 
