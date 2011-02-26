@@ -25,7 +25,7 @@ use Spreadsheet::WriteExcelXML::Format;
 use vars qw($VERSION @ISA);
 @ISA = qw(Spreadsheet::WriteExcelXML::XMLwriter Exporter);
 
-$VERSION = '0.12';
+$VERSION = '0.13';
 
 ###############################################################################
 #

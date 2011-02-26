@@ -1,5 +1,12 @@
 Revision history for Perl module Spreadsheet::WriteExcelXML.
 
+
+0.13 February 26 2011
+
+    ! This module is now deprecated in favour of Excel::Writer::XLSX.
+      See the DEPRECATED NOTICE in the main documention.
+
+
 0.12 January 4 2011
 
     ! Minor fix for set_bold() without argument.

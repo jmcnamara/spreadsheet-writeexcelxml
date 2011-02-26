@@ -21,7 +21,7 @@ use Spreadsheet::WriteExcelXML::Workbook;
 use vars qw($VERSION @ISA);
 @ISA = qw(Spreadsheet::WriteExcelXML::Workbook Exporter);
 
-$VERSION = '0.12'; # A Bookshop Idyll.
+$VERSION = '0.13'; # A Bookshop Idyll.
 
 
 
@@ -54,7 +54,7 @@ Spreadsheet::WriteExcelXML - Create an Excel file in XML format.
 
 =head1 VERSION
 
-This document refers to version 0.12 of Spreadsheet::WriteExcelXML, released January 4, 2011.
+This document refers to version 0.13 of Spreadsheet::WriteExcelXML, released February 26, 2011. This module is now deprecated in favour of L<Excel::Writer::XLSX>, see below.
 
 
 
@@ -85,6 +85,15 @@ To write a string, a formatted string, a number and a formula to the first works
     # Write a number and a formula using A1 notation
     $worksheet->write('A3', 1.2345);
     $worksheet->write('A4', '=SIN(PI()/4)');
+
+
+
+
+=head1 DEPRECATION NOTICE
+
+This module is now deprecated in favour of L<Excel::Writer::XLSX> which supports all of the features of this module, plus many more and is actively maintained.
+
+By and large L<Excel::Writer::XLSX> is a drop in replacement for Spreadsheet::WriteExcelXML.
 
 
 
