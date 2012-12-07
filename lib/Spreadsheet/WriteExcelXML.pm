@@ -21,7 +21,7 @@ use Spreadsheet::WriteExcelXML::Workbook;
 use vars qw($VERSION @ISA);
 @ISA = qw(Spreadsheet::WriteExcelXML::Workbook Exporter);
 
-$VERSION = '0.13'; # A Bookshop Idyll.
+$VERSION = '0.14'; # A Bookshop Idyll.
 
 
 

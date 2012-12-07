@@ -25,7 +25,7 @@ use Carp;
 use vars qw($AUTOLOAD $VERSION @ISA);
 @ISA = qw(Exporter);
 
-$VERSION = '0.13';
+$VERSION = '0.14';
 
 ###############################################################################
 #
@@ -766,9 +766,9 @@ sub set_properties {
 
     my $self = shift;
 
-    my %properties = @_; # Merge multiple hashes into one
-
-    while (my($key, $value) = each(%properties)) {
+    while (@_) {
+        my $key   = shift @_;
+        my $value = shift @_;
 
         # Strip leading "-" from Tk style properties eg. -color => 'red'.
         $key =~ s/^-//;

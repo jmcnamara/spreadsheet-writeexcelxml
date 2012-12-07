@@ -1,10 +1,17 @@
 Revision history for Perl module Spreadsheet::WriteExcelXML.
 
+See the DEPRECATED NOTICE in the main documention.
+
+
+0.14 December 7 2012
+
+    ! Fix for hash randomisation bug under perl 5.17.6.
+      Reported by Andreas Koenig RT#81766.
+
 
 0.13 February 26 2011
 
     ! This module is now deprecated in favour of Excel::Writer::XLSX.
-      See the DEPRECATED NOTICE in the main documention.
 
 
 0.12 January 4 2011

@@ -116,7 +116,7 @@ my @tests1 = (  # Cell alignment properties
 
 
                 # Tests for properties are mutually exclusive
-                [['text_vertical', 1, 'rotation',  45],
+                [[ 'rotation',  45, 'text_vertical', 1],
                   '<Alignment ss:Vertical="Bottom" ss:VerticalText="1"/>'   ],
 
                 [['text_wrap', 1, 'shrink', 1],
