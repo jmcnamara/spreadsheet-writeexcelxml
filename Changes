@@ -1,6 +1,13 @@
 Revision history for Perl module Spreadsheet::WriteExcelXML.
 
-See the DEPRECATED NOTICE in the main documention.
+This module is depreacated. Use Excel::Writer::XLSX instead. See the
+DEPRECATED NOTICE in the main documention.
+
+
+0.15 2021-03-29
+
+    ! Fix for failing test with perls compiled with usequadmath.
+      Reported by H.Merijn Brand
 
 
 0.14 2012-07-12
@@ -172,4 +179,3 @@ See the DEPRECATED NOTICE in the main documention.
     + Write formulas.
 
     + Formatting.
-
